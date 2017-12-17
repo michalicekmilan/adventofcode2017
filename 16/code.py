@@ -39,7 +39,7 @@ while True:
 	p = "".join(programs)
 	if p in dances:
 		break
-	dances.append("".join(programs));
+	dances.append(p);
 
 print(dances[0])
 print(dances[1000000000%len(dances)-1])
