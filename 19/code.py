@@ -7,8 +7,13 @@ U = lambda x,y: (x, y-1)
 R = lambda x,y: (x+1, y)
 L = lambda x,y: (x-1, y)
 
+diagram = []
+with open('input') as f:
+	for l in f.readlines():
+		diagram.append([x for x in l[:-1]])
 
-def step(diagram, packet):
+
+def step(packet):
 	x, y = packet.direction(packet.x, packet.y)
 	c = diagram[y][x]
 	if c == ' ':
@@ -27,19 +32,12 @@ def step(diagram, packet):
 			return Packet(x, y, d, packet.letters)
 
 
-diagram = []
-
-with open('input') as f:
-	for l in f.readlines():
-		diagram.append([x for x in l[:-1]])
-
 packet = Packet(diagram[0].index('|'), 0, D, '')
 steps = 0
 
 while packet.direction:
-	packet = step(diagram, packet)
+	packet = step(packet)
 	steps += 1
-
 
 print(packet.letters)	 
 print(steps)	 
