@@ -36,7 +36,7 @@ with open('input') as f:
 packet = Packet(diagram[0].index('|'), 0, D, '')
 steps = 0
 
-while packet.direction != None:
+while packet.direction:
 	packet = step(diagram, packet)
 	steps += 1
 
