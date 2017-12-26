@@ -80,7 +80,7 @@ with open('input') as f:
 		rules[k.strip()] = v.strip()	
 
 print(process(5))
-#print(process(18))
+print(process(18))
 	
 
 
